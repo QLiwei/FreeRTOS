@@ -3,6 +3,7 @@
 
 #include "debug_usart.h"
 
+void bsp_Init(void);
 
 #endif
 

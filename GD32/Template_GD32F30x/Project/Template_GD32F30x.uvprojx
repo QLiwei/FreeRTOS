@@ -403,6 +403,11 @@
               <FileType>1</FileType>
               <FilePath>..\BSP\debug_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\bsp.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

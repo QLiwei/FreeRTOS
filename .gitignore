@@ -1,0 +1,30 @@
+# refs: https://zhuanlan.zhihu.com/p/52885189
+
+# https://github.com/github/gitignore
+
+# vscode configs
+.vscode/
+
+*.[oa]
+
+# keil5 project files
+# *.UVGUIX[.user-name]: Project screen layout file.
+# *.UVOPTX: Project options file.
+# *.UVPROJX: Project file.
+# *.SCVD: XML schema file for the Component Viewer (System Component Viewer Description file).
+**.uvguix.*
+**.uvoptx
+**.uvprojx
+**.scvd
+
+# but template.uvprojx should be included
+!template.uvprojx
+
+# keil5 build output
+Listings/
+Objects/
+
+
+# JLink log and ini
+JLinkLog.txt
+JLinkSettings.ini
