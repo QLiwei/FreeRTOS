@@ -86,26 +86,61 @@
 
 extern uint32_t SystemCoreClock;
 
+/* 抢占式调度器:1  合作式调度器:0 */
 #define configUSE_PREEMPTION					1
+/*
+优化优先级列表中要执行的最高优先级任务的算法。
+通用方式---配置为 0：
+    所有平台的移植文件都可以配置为 0，因为这是通用方式。
+    纯 C 编写，比专用方式效率低。
+    可用的优先级数量不限制。
+专用方式---配置为 1：
+    部分平台支持。
+    这些平台架构有专用的汇编指令，比如 CLZ（Count Leading Zeros）指令，通过这些指令可以加快算法执行速度。
+    比通用方式高效。
+    有最大优先级数限制，通常限制为 32 个。
+*/
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION	1
-#define configUSE_QUEUE_SETS					1
+/* 使能空闲任务的钩子函数 */
 #define configUSE_IDLE_HOOK						0
+/* 使能滴答定时器中断里面执行的钩子函数*/
 #define configUSE_TICK_HOOK						0
+/* CPU 的主频，单位 Hz */
 #define configCPU_CLOCK_HZ						( SystemCoreClock )
+/* 义系统时钟节拍数，单位 Hz，一般取 1000Hz 即可 */
 #define configTICK_RATE_HZ						( 1000 )
+/* 定义可供用户使用的最大优先级数 */
 #define configMAX_PRIORITIES					( 5 )
+/* 定义空闲任务的栈空间大小，单位字，即 4 字节。*/
 #define configMINIMAL_STACK_SIZE				( ( unsigned short ) 120 )
+/* 定义堆大小，FreeRTOS 内核，用户动态内存申请，任务栈，任务创建，信号量创建，消息队列创建等都需要用这个空间 */
 #define configTOTAL_HEAP_SIZE					( ( size_t ) ( 47 * 1024 ) )
+/* 定义任务名最大的字符数，末尾的结束符 '\0'也要计算在内。 */
 #define configMAX_TASK_NAME_LEN					( 10 )
+/*  使能此配置将添加额外的结构体成员和函数，以此来协助可视化和跟踪，
+    在使用 IAR 中的 FreeRTOS插件时要使能这个配置，否则无法显示任务栈的使用情况。
+*/
 #define configUSE_TRACE_FACILITY				1
+/* 系统时钟节拍计数使用 TickType_t 数据类型定义的 */
 #define configUSE_16_BIT_TICKS					0
+/*
+  使能与空闲任务同优先级的任务
+    满足以下两个条件时，此参数才有效果
+        1.使能抢占式调度器。
+        2.有创建与空闲任务同优先级的任务。
+        配置为 1，就可以使能此特性了，实际应用中不建议用户使用此功能，将其配置为 0 即可。
+*/
 #define configIDLE_SHOULD_YIELD					1
 
 /* The full demo always has tasks to run so the tick will never be turned off.
 The blinky demo will use the default tickless idle implementation to turn the
 tick off. */
+/* 使能 tickless 低功耗模式 */
 #define configUSE_TICKLESS_IDLE					1
 
+
+/* 使能消息队列。*/
+#define configUSE_QUEUE_SETS					1
 
 
 /* This demo makes use of one or more example stats formatting functions.  These
