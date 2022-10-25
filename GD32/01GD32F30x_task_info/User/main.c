@@ -75,25 +75,6 @@ int main()
 */
 static void vTaskTaskUserIF(void *pvParameters)
 {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c916834 ([add] FreeRTOS 任务执行情况)
-	uint8_t pcWriteBuffer[500];
-	while(1)
-	{
-		APP_INFO("=================================================\r\n");
-		APP_INFO("task_name     state priority   remaining_stack serial_number\r\n");
-		vTaskList((char *)&pcWriteBuffer);
-		APP_INFO("%s\r\n", pcWriteBuffer);
-
-		APP_INFO("\r\ntask_name       Running_count        usage_rate\r\n");
-		vTaskGetRunTimeStats((char *)&pcWriteBuffer);
-		APP_INFO("%s\r\n", pcWriteBuffer);
-		vTaskDelay(1000);
-<<<<<<< HEAD
-=======
-=======
 	uint8_t ucKeyCode;
 	uint8_t pcWriteBuffer[500];
 	while(1)
@@ -123,8 +104,6 @@ static void vTaskTaskUserIF(void *pvParameters)
 		}
 
 		vTaskDelay(20);
->>>>>>> 4defe80 ([add] FreeRTOS 任务执行情况)
->>>>>>> c916834 ([add] FreeRTOS 任务执行情况)
 	}
 }
 
@@ -177,21 +156,9 @@ static void vTaskStart(void *pvParameters)
 {
 	while(1)
 	{
-<<<<<<< HEAD
-		/* LED 闪烁 */
-		APP_INFO("LED4 flicker\r\n");
-		vTaskDelay(4000);
-=======
-<<<<<<< HEAD
-		/* LED 闪烁 */
-		APP_INFO("LED4 flicker\r\n");
-		vTaskDelay(4000);
-=======
 		/* 按键扫描 */
 		bsp_KeyScan();
         vTaskDelay(10);
->>>>>>> 4defe80 ([add] FreeRTOS 任务执行情况)
->>>>>>> c916834 ([add] FreeRTOS 任务执行情况)
 	}
 }
 
