@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "systick.h": "c",
-        "includes.h": "c"
-    }
-}
